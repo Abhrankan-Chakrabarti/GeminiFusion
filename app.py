@@ -8,7 +8,7 @@ import google.generativeai as genai
 # Load environment variables
 load_dotenv()
 
-GOOGLE_API_KEY = os.getenv("api_key")
+GOOGLE_API_KEY = os.getenv("api_key") or st.secrets["api_key"]
 
 # Set up Google Gemini-Pro AI model
 genai.configure(api_key=GOOGLE_API_KEY)
