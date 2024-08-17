@@ -20,7 +20,7 @@ def gemini_pro():
 
 # Load gemini vision model
 def gemini_vision():
-    model = genai.GenerativeModel('gemini-pro-vision')
+    model = genai.GenerativeModel('gemini-1.5-flash-latest')
     return model
 
 # get response from gemini pro vision model
