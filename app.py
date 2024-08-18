@@ -42,7 +42,9 @@ def text_to_image(prompt):
 
     response = requests.post(url, json=payload, headers=headers)
     result = json.loads(response.text)
-    return result['openai/dall-e-3']['items'][0]['image_resource_url']
+    image = result['openai/dall-e-3']
+    if 'items' in image:
+        return image['items'][0]['image_resource_url']
 
 # Set page title and icon
 st.set_page_config(
