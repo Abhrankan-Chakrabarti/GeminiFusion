@@ -4,11 +4,16 @@ from dotenv import load_dotenv
 from streamlit_option_menu import option_menu
 from PIL import Image
 import google.generativeai as genai
+import json
+import requests
 
 # Load environment variables
 load_dotenv()
 
 GOOGLE_API_KEY = os.getenv("api_key") or st.secrets["api_key"]
+headers = {"Authorization": os.getenv("Authorization") or st.secrets["Authorization"]}
+
+url = "https://api.edenai.run/v2/image/generation"
 
 # Set up Google Gemini-Pro AI model
 genai.configure(api_key=GOOGLE_API_KEY)
@@ -28,6 +33,17 @@ def gemini_vision_response(model, prompt, image):
     response = model.generate_content([prompt, image])
     return response.text
 
+def text_to_image(prompt):
+    payload = {
+        "providers": "openai/dall-e-3",
+        "text": prompt,
+        "resolution": "1024x1024",
+    }
+
+    response = requests.post(url, json=payload, headers=headers)
+    result = json.loads(response.text)
+    return result['openai/dall-e-3']['items'][0]['image_resource_url']
+
 # Set page title and icon
 st.set_page_config(
     page_title="Chat With Gemi",
@@ -39,9 +55,9 @@ st.set_page_config(
 with st.sidebar:
     user_picked = option_menu(
         "Google Gemini AI",
-        ["ChatBot", "Image Captioning"],
+        ["ChatBot", "Image Captioning", "Text to Image"],
         menu_icon="robot",
-        icons = ["chat-dots-fill", "image-fill"],
+        icons = ["chat-dots-fill", "image-fill", "brush-fill"],
         default_index=0
     )
 
@@ -72,7 +88,7 @@ if user_picked == 'ChatBot':
         with st.chat_message("assistant"):
             st.markdown(reponse.text)
 
-if user_picked == 'Image Captioning':
+elif user_picked == 'Image Captioning':
     model = gemini_vision()
 
     st.title("🖼️Image Captioning")
@@ -93,3 +109,17 @@ if user_picked == 'Image Captioning':
 
         with colRight:
             st.info(caption_response)
+
+elif user_picked == 'Text to Image':
+    st.title("🎨Text to Image")
+
+    user_prompt = st.text_input("Enter the prompt for image generation:")
+
+    if st.button("Generate Image"):
+        if user_prompt:
+            generated_image = text_to_image(user_prompt)
+
+            if generated_image:
+                st.image(generated_image, caption="Generated Image")
+            else:
+                st.error("Image generation failed.")
