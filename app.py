@@ -98,17 +98,20 @@ elif user_picked == 'Image Captioning':
     user_prompt = st.text_input("Enter the prompt for image captioning:")
 
     if st.button("Generate Caption"):
-        load_image = Image.open(image)
+        if image is not None:
+            load_image = Image.open(image)
 
-        colLeft, colRight = st.columns(2)
+            colLeft, colRight = st.columns(2)
 
-        with colLeft:
-            st.image(load_image.resize((800, 500)))
+            with colLeft:
+                st.image(load_image.resize((800, 500)))
 
-        caption_response = gemini_vision_response(model, user_prompt, load_image)
+            caption_response = gemini_vision_response(model, user_prompt, load_image)
 
-        with colRight:
-            st.info(caption_response)
+            with colRight:
+                st.info(caption_response)
+        else:
+            st.error("Please upload an image before generating a caption.")
 
 elif user_picked == 'Text to Image':
     st.title("🎨Text to Image")
