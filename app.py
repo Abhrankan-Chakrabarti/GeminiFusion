@@ -33,18 +33,19 @@ def gemini_vision_response(model, prompt, image):
     response = model.generate_content([prompt, image])
     return response.text
 
-def text_to_image(prompt):
+def text_to_image(prompt, providers="openai/dall-e-3"):
     payload = {
-        "providers": "openai/dall-e-3",
+        "providers": providers,
         "text": prompt,
         "resolution": "1024x1024",
     }
 
     response = requests.post(url, json=payload, headers=headers)
     result = json.loads(response.text)
-    image = result['openai/dall-e-3']
-    if 'items' in image:
-        return image['items'][0]['image_resource_url']
+    if providers in result:
+        image = result[providers]
+        if 'items' in image:
+            return image['items'][0]['image_resource_url']
 
 # Set page title and icon
 st.set_page_config(
@@ -86,9 +87,12 @@ if user_picked == 'ChatBot':
     user_input = st.chat_input("Message TalkBot:")
     if user_input:
         st.chat_message("user").markdown(user_input)
-        reponse = st.session_state.chat_history.send_message(user_input)
-        with st.chat_message("assistant"):
-            st.markdown(reponse.text)
+        try:
+            response = st.session_state.chat_history.send_message(user_input)
+            with st.chat_message("assistant"):
+                st.markdown(response.text)
+        except BaseException as e:
+            st.error(repr(e).split("(")[0] + (":" if str(e) else "") + " " + e)
 
 elif user_picked == 'Image Captioning':
     model = gemini_vision()
