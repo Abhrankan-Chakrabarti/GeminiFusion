@@ -23,7 +23,7 @@ def install_playwright():
 # Place this at the start of your app to ensure it runs when the app is first loaded
 try:
     install_playwright()
-except:
+except BrokenPipeError:
     pass
 
 os.system('playwright install-deps')
