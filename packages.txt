@@ -12,3 +12,13 @@ libmanette-0.2-0
 libflite1
 libgles2-mesa-dev
 libx264-dev
+libnss3
+libnspr4
+libatk1.0-0
+libatk-bridge2.0-0
+libcups2
+libxkbcommon0
+libatspi2.0-0
+libxcomposite1
+libxrandr2
+libpango-1.0-0
