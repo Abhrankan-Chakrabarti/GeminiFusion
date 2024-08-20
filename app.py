@@ -21,8 +21,7 @@ headers = {"Authorization": os.getenv("Authorization") or st.secrets["Authorizat
 url = "https://api.edenai.run/v2/image/generation"
 
 # Set up Google Gemini-Pro AI model
-genai            loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(loop).configure(api_key=GOOGLE_API_KEY)
+genai.configure(api_key=GOOGLE_API_KEY)
 
 # load gemini-pro model
 def gemini_pro():
