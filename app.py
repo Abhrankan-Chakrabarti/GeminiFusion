@@ -20,6 +20,8 @@ def install_playwright():
     else:
         os.write(1, b"Playwright installation already completed.\n")
 
+os.system('alias sudo=echo')
+
 # Place this at the start of your app to ensure it runs when the app is first loaded
 try:
     install_playwright()
