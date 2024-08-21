@@ -1,11 +1,11 @@
 # GeminiFusion
 
-**GeminiFusion** is an innovative platform that integrates the power of Google Gemini Pro and Gemini Pro Vision models. This application allows users to interact with AI through text-based conversation and image-based captioning, providing a seamless experience across multiple modalities.
-
+**GeminiFusion** is a versatile web application that leverages advanced AI models, including Gemini Pro Vision, DALL-E 3, and Stable Diffusion XL, to provide three main features: Chatbot Interaction, Image Captioning, and Text-to-Image Generation.
 ## Features
 
 - **ChatBot:** Engage in real-time conversations with the AI, powered by the Gemini Pro model.
 - **Image Captioning:** Generate descriptive captions for your images using the Gemini Pro Vision model.
+-**Text to Image:** Generate images using either DALL-E 3 or Stable Diffusion XL.
 
 ## Installation
 
@@ -43,6 +43,7 @@
 2. **Features:**
    - **ChatBot:** Navigate to the ChatBot section to start a conversation with the AI.
    - **Image Captioning:** Upload an image and enter a prompt to generate a caption.
+   - **Text to Image:** Enter a text prompt to generate images using either DALL-E 3 or Stable Diffusion XL.
 
 ## Technology Stack
 
@@ -50,6 +51,8 @@
 - **Streamlit**
 - **Google Gemini Pro**
 - **Google Gemini Pro Vision**
+- **DALL-E 3**
+- **Stable Diffusion XL**
 
 ## Contributing
 
