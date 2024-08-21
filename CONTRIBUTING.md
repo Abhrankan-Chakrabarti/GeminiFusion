@@ -1,6 +1,6 @@
-# Contributing to GeminiFusion
+# Contributing to VisionaryAI
 
-Thank you for your interest in contributing to **GeminiFusion**! We welcome all contributions, whether they are bug fixes, feature additions, documentation improvements, or any other form of enhancement.
+Thank you for your interest in contributing to **VisionaryAI**! We welcome all contributions, whether they are bug fixes, feature additions, documentation improvements, or any other form of enhancement.
 
 ## Getting Started
 
@@ -67,4 +67,4 @@ Join the conversation on our [discussion board](https://github.com/Abhrankan-Cha
 
 ---
 
-Thank you for contributing to **GeminiFusion**!
+Thank you for contributing to **VisionaryAI**!

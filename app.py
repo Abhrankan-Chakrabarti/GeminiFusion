@@ -79,7 +79,7 @@ def dalle3_text_to_image(prompt, providers="openai/dall-e-3"):
 
 # Set page title and icon
 st.set_page_config(
-    page_title="Chat With Gemi",
+    page_title="VisionaryAI",
     page_icon="🧠",
     layout="centered",
     initial_sidebar_state="expanded"
@@ -87,7 +87,7 @@ st.set_page_config(
 
 with st.sidebar:
     user_picked = option_menu(
-        "Google Gemini AI",
+        "VisionaryAI",
         ["ChatBot", "Image Captioning", "Text to Image"],
         menu_icon="robot",
         icons = ["chat-dots-fill", "image-fill", "brush-fill"],
