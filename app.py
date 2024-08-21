@@ -45,7 +45,7 @@ def sdxl_text_to_image(prompt):
     )
     images = image_resp.images
 
-    if image[0].removed_for_safety:
+    if images[0].removed_for_safety:
         return
     ext = '.jpg'
     while os.path.isfile(prompt + ext):
