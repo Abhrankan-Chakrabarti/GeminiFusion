@@ -1,10 +1,11 @@
 # VisionaryAI (formerly GeminiFusion)
 
-**VisionaryAI** is a versatile web application that leverages advanced AI models, including Gemini Pro Vision, DALL-E 3, and Stable Diffusion XL, to provide three main features: Chatbot Interaction, Image Captioning, and Text-to-Image Generation.
+**VisionaryAI** is a versatile web application that leverages advanced AI models, including Gemini Flash, DALL-E 3, and Stable Diffusion XL, to provide three main features: Chatbot Interaction, Image Captioning, and Text-to-Image Generation.
+
 ## Features
 
-- **ChatBot:** Engage in real-time conversations with the AI, powered by the Gemini Pro model.
-- **Image Captioning:** Generate descriptive captions for your images using the Gemini Pro Vision model.
+- **ChatBot:** Engage in real-time conversations with the AI, powered by the Gemini Flash model.
+- **Image Captioning:** Generate descriptive captions for your images using the Gemini Flash model.
 - **Text to Image:** Generate images using either DALL-E 3 or Stable Diffusion XL.
 
 ## Installation
@@ -49,8 +50,7 @@
 
 - **Python**
 - **Streamlit**
-- **Google Gemini Pro**
-- **Google Gemini Pro Vision**
+- **Google Gemini Flash**
 - **DALL-E 3**
 - **Stable Diffusion XL**
 
