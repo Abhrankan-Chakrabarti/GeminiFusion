@@ -23,9 +23,9 @@ client = OctoAI(api_key=OCTOAI_TOKEN)
 # Set up Google Gemini-Pro AI model
 genai.configure(api_key=GOOGLE_API_KEY)
 
-# load gemini-flash model
+# load gemini-pro model
 def gemini_flash():
-    model = genai.GenerativeModel('gemini-2.5-flash-preview-04-17')
+    model = genai.GenerativeModel('gemini-2.5-pro')
     return model
 
 # Load gemini vision model
