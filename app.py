@@ -23,9 +23,9 @@ client = OctoAI(api_key=OCTOAI_TOKEN)
 # Set up Google Gemini-Pro AI model
 genai.configure(api_key=GOOGLE_API_KEY)
 
-# load gemini-flash model
-def gemini_flash():
-    model = genai.GenerativeModel('gemini-2.5-flash-preview-04-17')
+# load gemini-pro model
+def gemini_pro():
+    model = genai.GenerativeModel('gemini-2.5-pro')
     return model
 
 # Load gemini vision model
@@ -101,7 +101,7 @@ def roleForStreamlit(user_role):
         return user_role
 
 if user_picked == 'ChatBot':
-    model = gemini_flash()
+    model = gemini_pro()
     
     if "chat_history" not in st.session_state:
         st.session_state['chat_history'] = model.start_chat(history=[])
