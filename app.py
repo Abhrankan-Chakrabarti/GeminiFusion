@@ -25,12 +25,12 @@ genai.configure(api_key=GOOGLE_API_KEY)
 
 # load gemini-flash model
 def gemini_flash():
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    model = genai.GenerativeModel('gemini-2.5-flash')
     return model
 
 # Load gemini vision model
 def gemini_vision():
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    model = genai.GenerativeModel('gemini-2.5-flash')
     return model
 
 # get response from gemini flash model
